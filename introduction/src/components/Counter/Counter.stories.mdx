@@ -1,0 +1,31 @@
+import { action } from '@storybook/addon-actions';
+import { Counter } from './index';
+import { Story, Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='components|Counter' component={Counter} />
+
+
+# The Counter documentation
+
+The long documentation of the `Counter` component.
+
+## Illustration
+Must at least contain a story:
+
+<Story name="Doc">
+    <Counter />
+</Story>
+
+## Some other code...
+```js
+const a = 1;
+a+++
+```
+```css
+button {
+    background-color: red;
+}
+```
+
+
+And so on...
