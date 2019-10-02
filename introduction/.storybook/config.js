@@ -1,4 +1,5 @@
 import { configure } from '@storybook/react';
+import requireContext from 'require-context.macro';
 
 // automatically import all files ending in *.stories.js
-configure(require.context('../src', true, /\.stories\.(js|mdx)$/), module);
+configure(requireContext('../src', true, /\.stories.(js|mdx)$/), module);
