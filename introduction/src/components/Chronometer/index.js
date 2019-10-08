@@ -23,7 +23,7 @@ export class Chronometer extends React.Component {
     componentWillUnmount() {
         this.stop();
     }
-    clickHandle() {       
+    clickHandle() {      
         if(this.state.isClicked){
             this.start();
             this.setState(state => ({
