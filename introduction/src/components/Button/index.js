@@ -7,10 +7,4 @@ export function Button(props) {
     );
 }
 
-
-
-Button.propTypes = {
-    label: PropTypes.string
- };
-
 export default Button;

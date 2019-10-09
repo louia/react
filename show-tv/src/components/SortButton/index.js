@@ -1,38 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/** Coucou */
 export class SortButton extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.clickHandle = this.clickHandle.bind(this);
-        this.state = {
-            active: props.active,
-            order : props.order,
-            disabled : props.disabled,
-        };
-    }
- 
-    clickHandle() { 
-        if(this.state.active){
-            
-        }
-    }
-
     render() {
-        if (this.state.disabled) {
-            return (
-                <button disabled>{this.props.children}</button>
-            );
-        }
+        let {children, order, onClick, actif, ...props } = this.props;
+
+        let fontIcon = order === 'ascending' ? '▲' : '▼';
+        let css = 'sortButton' + (actif ? ' actif' : '');
+
         return (
-            <button onClick={this.clickHandle}>{this.props.children}</button>
+            <div className={css}>
+                <button actif={actif} {...props} onClick={onclick}>{children}</button>
+                <button actif={actif} {...props} onClick={onclick}>{fontIcon}</button>
+            </div>
         );
     }
 }
 
+
 SortButton.propTypes = {
-    active: PropTypes.bool,
+    actif: PropTypes.bool,
     order: PropTypes.string,
     disabled: PropTypes.bool,
     onClick: PropTypes.func,

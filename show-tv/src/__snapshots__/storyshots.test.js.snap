@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots components/Button Actif 1`] = `
+<button
+  className="actif"
+>
+  Button activé
+</button>
+`;
+
+exports[`Storyshots components/Button Default Value 1`] = `
+<button
+  className="inactif"
+  disabled={true}
+/>
+`;
+
+exports[`Storyshots components/Button Initialized 1`] = `
+<button
+  className="inactif"
+  disabled={true}
+>
+  Button désactivé
+</button>
+`;
+
+exports[`Storyshots components/Header Avec Mini 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    Bienvenue
+  </div>
+  <div
+    className="item-header"
+  >
+    Sous titre
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header Avec Noeud DOM 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    <p>
+      Bienvenue
+    </p>
+  </div>
+  <div
+    className="item-header"
+  >
+    <strong>
+      sous titre
+    </strong>
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header Avecnoeud DOM 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    <p>
+      Bienvenue
+    </p>
+  </div>
+  <div
+    className="item-header"
+  >
+    <strong>
+      sous titre
+    </strong>
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header DOM 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    <h1>
+      Bienvenue
+    </h1>
+  </div>
+  <div
+    className="item-header"
+  >
+    <h2>
+      sous titre
+    </h2>
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header Default Value 1`] = `
+<header>
+  <div
+    className="item-header"
+  />
+  <div
+    className="item-header"
+  />
+</header>
+`;
+
+exports[`Storyshots components/Header Initialized 1`] = `
+<header>
+  <div
+    className="item-header"
+  >
+    Bienvenue
+  </div>
+  <div
+    className="item-header"
+  >
+    Sous titre
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header MINI 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    Bienvenue
+  </div>
+  <div
+    className="item-header"
+  >
+    Sous titre
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header Mini 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    Bienvenue
+  </div>
+  <div
+    className="item-header"
+  >
+    Sous titre
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/SortButton Actif 1`] = `
+<button
+  onClick={[Function]}
+>
+  Button activé
+</button>
+`;
+
+exports[`Storyshots components/SortButton Default Value 1`] = `
+<button
+  onClick={[Function]}
+/>
+`;
+
+exports[`Storyshots components/SortButton Disabled 1`] = `
+<div
+  class="btn-group"
+>
+  <button
+    disabled={true}
+  >
+    Tri
+  </button>
+  <button
+    disabled={true}
+  >
+    ▼
+  </button>
+</div>
+`;
+
+exports[`Storyshots components/SortButton Initialized 1`] = `
+<button
+  onClick={[Function]}
+>
+  Button désactivé
+</button>
+`;

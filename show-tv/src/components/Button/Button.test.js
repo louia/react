@@ -1,7 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
  import { default_value, initialized } from './Button.stories';
-import initStoryshots from '@storybook/addon-storyshots';
-initStoryshots({});
+ 
 
 
 describe('Button test', () => {

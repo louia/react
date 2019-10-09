@@ -1,7 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
 import { default_value, initialized, mini } from './Header.stories';
-import initStoryshots from '@storybook/addon-storyshots';
-initStoryshots({ /* configuration options */ });
 
 
 describe('Header test', () => {

@@ -13,30 +13,5 @@ code {
     monospace;
 }
 
-.title{
-  font-size: 2em;
-}
 
-.subtitle{
-  font-size: 1em;
-}
-
-header{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content:center;
-  align-items: center;
-  height: 8em;
-  border: black solid 1px;
-  border-radius: 15px;
-}
-.item-header:first-child{
-  font-size: 1.5em;
-  font-weight: bold;
-}
-.item-header:last-child{
-  font-size: 1.1em;
-  font-weight: bold;
-}
 

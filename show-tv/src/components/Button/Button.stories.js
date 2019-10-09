@@ -8,5 +8,6 @@ export default {
 }
 
 export const default_value = () => <Button />;
-export const initialized = () => <Button actif={false}  children="Button désactivé"/>;
+export const initialized = () => <Button actif={false}>
+    <div><img src=''></img></div></Button>;
 export const actif = () => <Button actif={true}  children="Button activé"/>;
