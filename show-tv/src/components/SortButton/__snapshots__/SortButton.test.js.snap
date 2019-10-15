@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots components/Button Button Actif 1`] = `
+<button
+  className="undefined monButton actif"
+>
+  Button activé
+</button>
+`;
+
+exports[`Storyshots components/Button Button Non Actif 1`] = `
+<button
+  className="test monButton"
+>
+  Button désactivé
+</button>
+`;
+
+exports[`Storyshots components/Button Default Value 1`] = `
+<button
+  className="undefined monButton"
+>
+  Mon boutton
+</button>
+`;
+
+exports[`Storyshots components/Button Test With H 1 1`] = `
+<button
+  className="undefined monButton"
+>
+  <div>
+    <h1>
+      Coucou
+    </h1>
+  </div>
+</button>
+`;
+
+exports[`Storyshots components/Header DOM 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    <p>
+      Bienvenue
+    </p>
+  </div>
+  <div
+    className="item-header"
+  >
+    <p>
+      Sous titre
+    </p>
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header Default Value 1`] = `
+<header>
+  <div
+    className="item-header"
+  >
+    Bienvenue
+  </div>
+  <div
+    className="item-header"
+  >
+    Sous titre
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header Initialized 1`] = `
+<header>
+  <div
+    className="item-header"
+  >
+    Bienvenue
+  </div>
+  <div
+    className="item-header"
+  >
+    Sous titre
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/Header MINI 1`] = `
+<header
+  className="mini"
+>
+  <div
+    className="item-header"
+  >
+    Bienvenue
+  </div>
+  <div
+    className="item-header"
+  >
+    Sous titre
+  </div>
+</header>
+`;
+
+exports[`Storyshots components/SortButton Button Ascending 1`] = `
+<div
+  className="sortButton"
+>
+  <button
+    disabled={false}
+    onClick={null}
+  >
+    Tri activé
+  </button>
+  <button
+    disabled={false}
+    onClick={null}
+  >
+    ▲
+  </button>
+</div>
+`;
+
+exports[`Storyshots components/SortButton Button Ascending Disabled 1`] = `
+<div
+  className="sortButton"
+>
+  <button
+    disabled={true}
+    onClick={null}
+  >
+    Tri désactivé
+  </button>
+  <button
+    disabled={true}
+    onClick={null}
+  >
+    ▲
+  </button>
+</div>
+`;
+
+exports[`Storyshots components/SortButton Button Descending Disabled 1`] = `
+<div
+  className="sortButton"
+>
+  <button
+    disabled={true}
+    onClick={null}
+  >
+    Tri activé
+  </button>
+  <button
+    disabled={true}
+    onClick={null}
+  >
+    ▼
+  </button>
+</div>
+`;
+
+exports[`Storyshots components/SortButton Button Descending Enable 1`] = `
+<div
+  className="sortButton"
+>
+  <button
+    disabled={false}
+    onClick={null}
+  >
+    Tri activé
+  </button>
+  <button
+    disabled={false}
+    onClick={null}
+  >
+    ▼
+  </button>
+</div>
+`;
+
+exports[`Storyshots components/SortButton Default Value 1`] = `
+<div
+  className="sortButton actif"
+>
+  <button
+    actif={true}
+    disabled={false}
+    onClick={null}
+  >
+    Tri default
+  </button>
+  <button
+    actif={true}
+    disabled={false}
+    onClick={null}
+  >
+    ▼
+  </button>
+</div>
+`;

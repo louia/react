@@ -21,13 +21,13 @@ export class Header extends React.Component {
 }
 
 
+
 Header.propTypes = {
     isMiniature: PropTypes.bool,
     title: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.instanceOf(Element)
+        PropTypes.instanceOf(Element),
     ]),
-
     subtitle: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.instanceOf(Element)

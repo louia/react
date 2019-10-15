@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 export class Button extends React.Component {
     render() {
-        let {actif, children, ...props} = this.props;
+        let {actif, children,className, ...props} = this.props;
 
-        let css = 'monButton';
+        let css = className+ ' monButton';
         if (actif) css += ' actif';
 
-        return <button {...props} className={css}>{this.props.children}</button>
+        return <button {...props} className={css}>{children}</button>
     }
 }
 
