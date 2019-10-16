@@ -7,27 +7,29 @@ import './index.css'
 export class Sorting extends React.Component {
 
     render() {
-        let {sorts, selected, onChange,disabled,  ...props } = this.props;
+        let { sorts, selected, onChange, disabled, ...props } = this.props;
 
-        let buttons=[];
-        sorts.forEach(element => {
-            buttons.push(<SortButton 
-                            disabled={disabled}
-                            selected={element.id}
-                            className={"child-button"}
-                            order={element.order}
-                            onClick={(order)=>{
-                                onChange(element.id,element.order)
-                            }}>
-                            {element.name}
-                        </SortButton>);
-        });
+        let buttons = [];
+        if (sorts) {
+            sorts.forEach(element => {
+                buttons.push(<SortButton
+                    disabled={disabled}
+                    selected={element.id}
+                    className={"child-button"}
+                    order={element.order}
+                    onClick={(order) => {
+                        onChange(element.id, element.order)
+                    }}>
+                    {element.name}
+                </SortButton>);
+            });
 
-        return (
-           <div className={"parent-button"}>
-               {buttons}
-           </div>
-        );
+            return (
+                <div className={"parent-button"}>
+                    {buttons}
+                </div>
+            );
+        }
     }
 }
 
