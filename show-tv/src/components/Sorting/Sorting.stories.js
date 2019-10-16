@@ -1,6 +1,7 @@
 import React from 'react';
 import Sorting from './index';
 // import './index.css'
+import { action } from '@storybook/addon-actions';
 
 export default {
     title: 'components/Sorting',
@@ -26,6 +27,6 @@ let sorts = [
 
 ]
 
-export const default_value = () => <Sorting disabled={false} sorts={sorts} />;
+export const default_value = () => <Sorting disabled={false} onChange={action('clicked')} sorts={sorts} />;
 export const sorting_disabled = () => <Sorting disabled={true} sorts={sorts}/>;
 

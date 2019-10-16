@@ -110,13 +110,13 @@ exports[`Storyshots components/SortButton Button Ascending 1`] = `
 >
   <button
     disabled={false}
-    onClick={null}
+    onClick={[Function]}
   >
     Tri activé
   </button>
   <button
     disabled={false}
-    onClick={null}
+    onClick={[Function]}
   >
     ▲
   </button>
@@ -129,13 +129,13 @@ exports[`Storyshots components/SortButton Button Ascending Disabled 1`] = `
 >
   <button
     disabled={true}
-    onClick={null}
+    onClick={[Function]}
   >
     Tri désactivé
   </button>
   <button
     disabled={true}
-    onClick={null}
+    onClick={[Function]}
   >
     ▲
   </button>
@@ -148,13 +148,13 @@ exports[`Storyshots components/SortButton Button Descending Disabled 1`] = `
 >
   <button
     disabled={true}
-    onClick={null}
+    onClick={[Function]}
   >
     Tri activé
   </button>
   <button
     disabled={true}
-    onClick={null}
+    onClick={[Function]}
   >
     ▼
   </button>
@@ -167,13 +167,13 @@ exports[`Storyshots components/SortButton Button Descending Enable 1`] = `
 >
   <button
     disabled={false}
-    onClick={null}
+    onClick={[Function]}
   >
     Tri activé
   </button>
   <button
     disabled={false}
-    onClick={null}
+    onClick={[Function]}
   >
     ▼
   </button>
@@ -187,16 +187,138 @@ exports[`Storyshots components/SortButton Default Value 1`] = `
   <button
     actif={true}
     disabled={false}
-    onClick={null}
+    onClick={[Function]}
   >
     Tri default
   </button>
   <button
     actif={true}
     disabled={false}
-    onClick={null}
+    onClick={[Function]}
   >
     ▼
   </button>
+</div>
+`;
+
+exports[`Storyshots components/Sorting Default Value 1`] = `
+<div
+  className="parent-button"
+>
+  <div
+    className="sortButton"
+  >
+    <button
+      disabled={false}
+      onClick={[Function]}
+      selected="popularity"
+    >
+      popularité
+    </button>
+    <button
+      disabled={false}
+      onClick={[Function]}
+      selected="popularity"
+    >
+      ▼
+    </button>
+  </div>
+  <div
+    className="sortButton"
+  >
+    <button
+      disabled={false}
+      onClick={[Function]}
+      selected="name"
+    >
+      nom
+    </button>
+    <button
+      disabled={false}
+      onClick={[Function]}
+      selected="name"
+    >
+      ▲
+    </button>
+  </div>
+  <div
+    className="sortButton"
+  >
+    <button
+      disabled={false}
+      onClick={[Function]}
+      selected="price"
+    >
+      prix
+    </button>
+    <button
+      disabled={false}
+      onClick={[Function]}
+      selected="price"
+    >
+      ▲
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots components/Sorting Sorting Disabled 1`] = `
+<div
+  className="parent-button"
+>
+  <div
+    className="sortButton"
+  >
+    <button
+      disabled={true}
+      onClick={[Function]}
+      selected="popularity"
+    >
+      popularité
+    </button>
+    <button
+      disabled={true}
+      onClick={[Function]}
+      selected="popularity"
+    >
+      ▼
+    </button>
+  </div>
+  <div
+    className="sortButton"
+  >
+    <button
+      disabled={true}
+      onClick={[Function]}
+      selected="name"
+    >
+      nom
+    </button>
+    <button
+      disabled={true}
+      onClick={[Function]}
+      selected="name"
+    >
+      ▲
+    </button>
+  </div>
+  <div
+    className="sortButton"
+  >
+    <button
+      disabled={true}
+      onClick={[Function]}
+      selected="price"
+    >
+      prix
+    </button>
+    <button
+      disabled={true}
+      onClick={[Function]}
+      selected="price"
+    >
+      ▲
+    </button>
+  </div>
 </div>
 `;

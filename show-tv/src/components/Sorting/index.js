@@ -16,7 +16,7 @@ export class Sorting extends React.Component {
                             selected={element.id}
                             className={"child-button"}
                             order={element.order}
-                            onChange={(order)=>{
+                            onClick={(order)=>{
                                 onChange(element.id,element.order)
                             }}>
                             {element.name}
