@@ -27,5 +27,5 @@ let sorts = [
 ]
 
 export const default_value = () => <Sorting disabled={false} sorts={sorts} />;
-export const sorting_with_disabled = () => <Sorting disabled={true} sorts={sorts}/>;
+export const sorting_disabled = () => <Sorting disabled={true} sorts={sorts}/>;
 

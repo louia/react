@@ -12,8 +12,8 @@ export class SortButton extends React.Component {
 
         return (
             <div className={css}>
-                <button actif={actif} {...props} onClick={onclick}>{children}</button>
-                <button actif={actif} {...props} onClick={onclick}>{fontIcon}</button>
+                <button actif={actif} {...props} onClick={()=> onClick(order)}>{children}</button>
+                <button actif={actif} {...props} onClick={()=> onClick(order)}>{fontIcon}</button>
             </div>
         );
     }

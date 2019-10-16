@@ -11,7 +11,16 @@ export class Sorting extends React.Component {
 
         let buttons=[];
         sorts.forEach(element => {
-            buttons.push(<SortButton disabled={disabled} className={"child-button"} id={element.id} order={element.order} >{element.name}</SortButton>);
+            buttons.push(<SortButton 
+                            disabled={disabled}
+                            selected={element.id}
+                            className={"child-button"}
+                            order={element.order}
+                            onChange={(order)=>{
+                                onChange(element.id,element.order)
+                            }}>
+                            {element.name}
+                        </SortButton>);
         });
 
         return (
