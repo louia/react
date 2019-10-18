@@ -12,7 +12,8 @@ export class GenreFilterButton extends React.Component {
         let css = 'button ';
         // if(type==='with') css += 'is-success'
         // else if(type==='without') css+= 'is-danger'
-
+        // console.log(type);
+        
         return (
             <div className="buttons has-addons">
                 <button {...props} className={css + (type==='without'?' is-danger' : '')} onClick={()=> onChange(type)}>-</button>

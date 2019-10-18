@@ -1,45 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GenreFiltreButton from '../GenreFiltreButton/index.js';
+import GenreFilterButton from '../GenreFilterButton/index.js';
 
 export class GenresFilters extends React.Component {
     constructor(props) {
         super(props);
-        this.getListGenre = this.getListGenre.bind(this);
 
         this.state = {
-            apiKey: 'c12acbfd62881f685724440e60707f6b',
-            language: 'fr-FR'
-            // onChange : props.onChange
+            isLoaded: false,
+            error: null,
+            listGenre: []
         };
     }
 
-    clickHandle(a, b) {
-        console.log(a, b);
-    }
-
-    getListGenre() {
-        let e=[];
-        fetch('https://api.themoviedb.org/3/genre/tv/list?api_key=' + this.state.apiKey + '&language=' + this.state.apiKey)
-        .then(function (response) {
-            return response.json();
+    componentDidMount() {
+        fetch('https://api.themoviedb.org/3/genre/tv/list?api_key=' + this.props.apiKey + '&language=' + this.props.language)
+            .then(response => {
+                return response.json()
             })
-        .then((data)=>{
-            console.log(data);
-            data.forEach(element => {
-                e.push(<GenreFiltreButton ></GenreFiltreButton>)
-            });
-            
-        })
+            .then((data) => {
+                this.setState({
+                    listGenre: data.genres,
+                    isLoaded: true
+                });   
+            },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            );
     }
-
+    onChange(e){
+        console.log(e)
+    }
 
     render() {
-        this.getListGenre()
-        return (
-            <p>hello word</p>
-        );
+        const {  error, isLoaded,listGenre } = this.state;
+        if (error) {
+            return <div>Erreur : {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Chargement…</div>;
+        } else {
+            listGenre.map(function(entry) {
+                entry.type = null;
+                return entry;
+            });
+                 
+           
+            return (
+                <ul>
+                    {listGenre.map(item => (
+                        <li id={item.id}><GenreFilterButton type={item.type} onChange={this.onChange}>{item.name}</GenreFilterButton></li>
+                    ))}
+                </ul>
+            );
+        }
     }
+
 }
 
 
