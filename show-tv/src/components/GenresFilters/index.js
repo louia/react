@@ -39,8 +39,15 @@ export class GenresFilters extends React.Component {
     }
 
     _onFilterChange(id, type) {
-        console.log(id,type);
-        
+        var copyoflistGenre = [...this.state.listGenres];
+        copyoflistGenre.map((item)=>{
+            if(item.id===id){
+                item.type =type;
+            }
+        });
+        this.setState({
+            listGenres : copyoflistGenre
+        });
     }
 
     render() {
@@ -50,8 +57,7 @@ export class GenresFilters extends React.Component {
         } else if (!isLoaded) {
             return <div>Chargement…</div>;
         } else {
-                
-           
+          
             return (
                 <ul>
                     {listGenres.map(item => (
