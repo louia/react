@@ -70,5 +70,11 @@ export class GenresFilters extends React.Component {
 
 }
 
+GenresFilters.defaultProps = {
+    apiKey: "c12acbfd62881f685724440e60707f6b",
+    language : "fr-FR",
+  };
+  
+
 
 export default GenresFilters;
