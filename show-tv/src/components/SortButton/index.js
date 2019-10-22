@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import 'bulma/css/bulma.css'
 
 /** Bouton permettant de trier */
 export class SortButton extends React.Component {
@@ -11,9 +12,9 @@ export class SortButton extends React.Component {
         let css = 'sortButton' + (actif ? ' actif' : '');
 
         return (
-            <div className={css}>
-                <button actif={actif} {...props} onClick={()=> onClick(order)}>{children}</button>
-                <button actif={actif} {...props} onClick={()=> onClick(order)}>{fontIcon}</button>
+            <div className={css + ' buttons has-addons'}>
+                <button actif={actif} className="button is-grey" {...props} onClick={()=> onClick(order)}>{children}</button>
+                <button actif={actif} className="button is-grey"{...props} onClick={()=> onClick(order)}>{fontIcon}</button>
             </div>
         );
     }

@@ -9,8 +9,9 @@ export class GenresFilters extends React.Component {
         this.state = {
             isLoaded: false,
             error: null,
-            listGenre: []
+            listGenres: [],
         };
+        this._onFilterChange = this._onFilterChange.bind(this);
     }
 
     componentDidMount() {
@@ -20,7 +21,11 @@ export class GenresFilters extends React.Component {
             })
             .then((data) => {
                 this.setState({
-                    listGenre: data.genres,
+                    listGenres: data.genres.map(({name, id}) => ({
+                        id,
+                        name,
+                        type: null,
+                    })),
                     isLoaded: true
                 });   
             },
@@ -32,27 +37,25 @@ export class GenresFilters extends React.Component {
                 }
             );
     }
-    onChange(e){
-        console.log(e)
+
+    _onFilterChange(id, type) {
+        console.log(id,type);
+        
     }
 
     render() {
-        const {  error, isLoaded,listGenre } = this.state;
+        const {  error, isLoaded,listGenres } = this.state;
         if (error) {
             return <div>Erreur : {error.message}</div>;
         } else if (!isLoaded) {
             return <div>Chargement…</div>;
         } else {
-            listGenre.map(function(entry) {
-                entry.type = null;
-                return entry;
-            });
-                 
+                
            
             return (
                 <ul>
-                    {listGenre.map(item => (
-                        <li id={item.id}><GenreFilterButton type={item.type} onChange={this.onChange}>{item.name}</GenreFilterButton></li>
+                    {listGenres.map(item => (
+                        <li key={item.id} id={item.id}><GenreFilterButton type={item.type} onChange={(type) => this._onFilterChange(item.id, type)}>{item.name}</GenreFilterButton></li>
                     ))}
                 </ul>
             );

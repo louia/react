@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Sorting from '../Sorting/index.js';
+import GenresFilters from '../GenresFilters/index.js';
 
 export class Explorer extends React.Component {
     constructor(props) {
@@ -10,8 +11,8 @@ export class Explorer extends React.Component {
         this.state = {};
     }
 
-    clickHandle(a,b) {
-        console.log(a,b);
+    clickHandle(a, b) {
+        console.log(a, b);
     }
 
 
@@ -34,7 +35,10 @@ export class Explorer extends React.Component {
             }
         ]
         return (
-            <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts} />
+            <div>
+                <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts}></Sorting>
+                <GenresFilters onChange={(a) => console.log(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>
+            </div>
         );
     }
 }
