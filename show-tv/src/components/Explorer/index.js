@@ -13,11 +13,37 @@ export class Explorer extends React.Component {
             isLoaded: false,
             error: null,
             listSeries: [],
+            sorts : [
+                {
+                    id: "popularity",
+                    name: "popularité",
+                    order: "descending",
+                },
+                {
+                    id: "name",
+                    name: "nom",
+                    order: "ascending",
+                },
+                {
+                    id: "price",
+                    name: "prix",
+                    order: "ascending",
+                }
+            ]
         };
     }
 
-    clickHandle(a, b) {
-        console.log(a, b);
+    clickHandle(id, order) {
+        var copyofSorts= [...this.state.sorts];
+        copyofSorts.map((item) => {
+            if (item.id === id) {
+                if(order === 'descending') item.order = 'ascending';
+                else item.order='descending';
+            }
+        });    
+        this.setState({
+            sorts: copyofSorts
+        });
     }
 
     componentDidMount() {
@@ -42,25 +68,8 @@ export class Explorer extends React.Component {
 
 
     render() {
-        const {  error, isLoaded,listSeries } = this.state;
+        const {  error, isLoaded,listSeries,sorts } = this.state;
 
-        let sorts = [
-            {
-                id: "popularity",
-                name: "popularité",
-                order: "descending",
-            },
-            {
-                id: "name",
-                name: "nom",
-                order: "ascending",
-            },
-            {
-                id: "price",
-                name: "prix",
-                order: "ascending",
-            }
-        ]
 
         if (error) {
             return <div>Erreur : {error.message}</div>;
@@ -74,11 +83,11 @@ export class Explorer extends React.Component {
                 </div>
             );
         } else {
-            console.log(listSeries);
+            // console.log(listSeries);
             return (
                     
                 <div>
-                    <Header></Header>
+                    <Header  title="Bienvenue" subtitle="Recherche de séries"></Header>
                     <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts}></Sorting>
                     <GenresFilters onChange={(a) => console.log(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>
                 </div>
