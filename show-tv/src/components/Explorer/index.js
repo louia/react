@@ -102,8 +102,6 @@ export class Explorer extends React.Component {
             );
     }
 
-
-
     render() {
         const {  error, isLoaded,listSeries,sorts } = this.state;
         var renderContent = <GenresFilters onChange={(a) => this._onFilterChange(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>;   
@@ -116,6 +114,11 @@ export class Explorer extends React.Component {
                 <Header title="Bienvenue" subtitle="Recherche de séries"></Header>
                 <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts}></Sorting>
                {isLoaded ? renderContent : <p>Chargement...</p>}
+                <ul>
+                    {listSeries.map(item => (
+                        <li key={item.id}>{item.name}</li>
+                    ))}
+                </ul>
             </div>
         );
     }
