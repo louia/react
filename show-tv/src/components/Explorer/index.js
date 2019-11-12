@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Sorting from '../Sorting/index.js';
 import Header from '../Header/index.js';
 import GenresFilters from '../GenresFilters/index.js';
+import TVShowList from '../TVShowList/index.js';
 
 export class Explorer extends React.Component {
     constructor(props) {
@@ -71,7 +72,8 @@ export class Explorer extends React.Component {
             this.setState({
                 listSeries: data.results,
                 isLoaded: true
-            });               
+            });     
+                      
         },
             (error) => {
                 this.setState({
@@ -91,7 +93,9 @@ export class Explorer extends React.Component {
                 this.setState({
                     listSeries: data.results,
                     isLoaded: true
-                });                   
+                });       
+                console.log(data.results);
+            
             },
                 (error) => {
                     this.setState({
@@ -104,7 +108,12 @@ export class Explorer extends React.Component {
 
     render() {
         const {  error, isLoaded,listSeries,sorts } = this.state;
-        var renderContent = <GenresFilters onChange={(a) => this._onFilterChange(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>;   
+        var renderContent = (
+            <>
+        <GenresFilters onChange={(a) => this._onFilterChange(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>
+        <TVShowList listSeries={this.state.listSeries}></TVShowList>
+</>
+        );
 
         if (error)
             return <div>Erreur : {error.message}</div>;
@@ -114,11 +123,11 @@ export class Explorer extends React.Component {
                 <Header title="Bienvenue" subtitle="Recherche de séries"></Header>
                 <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts}></Sorting>
                {isLoaded ? renderContent : <p>Chargement...</p>}
-                <ul>
+                {/* <ul>
                     {listSeries.map(item => (
                         <li key={item.id}>{item.name}</li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
         );
     }
