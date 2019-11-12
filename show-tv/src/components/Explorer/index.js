@@ -8,6 +8,7 @@ export class Explorer extends React.Component {
     constructor(props) {
         super(props);
         this.clickHandle = this.clickHandle.bind(this);
+        this._onFilterChange = this._onFilterChange.bind(this);
 
         this.state = {
             isLoaded: false,
@@ -46,6 +47,41 @@ export class Explorer extends React.Component {
         });
     }
 
+    _onFilterChange(filters){
+        var listOfIdsFilterWith = filters.filter((item) => {
+            if(item.type==='with') return item.id
+        });
+        listOfIdsFilterWith = listOfIdsFilterWith.map(item => item.id)
+
+        var listOfIdsFilterWithout = filters.filter((item) => {
+            if(item.type==='without') return item.id
+        });
+        listOfIdsFilterWithout = listOfIdsFilterWithout.map(item => item.id)
+
+        this.refreshListSeries(listOfIdsFilterWith,listOfIdsFilterWithout);
+        
+    }
+
+    refreshListSeries(w,wo){                
+        fetch('https://api.themoviedb.org/3/discover/tv?api_key=' + this.props.apiKey + '&language=' + this.props.language + '&with_genres='+w + '&without_genres='+wo)
+        .then(response => {
+            return response.json()
+        })
+        .then((data) => {
+            this.setState({
+                listSeries: data.results,
+                isLoaded: true
+            });               
+        },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+        );
+    }
+
     componentDidMount() {
         fetch('https://api.themoviedb.org/3/discover/tv?api_key=' + this.props.apiKey + '&language=' + this.props.language)
             .then(response => {
@@ -55,7 +91,7 @@ export class Explorer extends React.Component {
                 this.setState({
                     listSeries: data.results,
                     isLoaded: true
-                });   
+                });                   
             },
                 (error) => {
                     this.setState({
@@ -67,33 +103,21 @@ export class Explorer extends React.Component {
     }
 
 
+
     render() {
         const {  error, isLoaded,listSeries,sorts } = this.state;
+        var renderContent = <GenresFilters onChange={(a) => this._onFilterChange(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>;   
 
-
-        if (error) {
+        if (error)
             return <div>Erreur : {error.message}</div>;
-        } else if (!isLoaded) {
-            return (
-                <div>
-                    <Header></Header>
-                    <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts}></Sorting>
-                    <GenresFilters onChange={(a) => console.log(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>
-                    <p>Chargement...</p>
-                </div>
-            );
-        } else {
-            // console.log(listSeries);
-            return (
-                    
-                <div>
-                    <Header  title="Bienvenue" subtitle="Recherche de séries"></Header>
-                    <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts}></Sorting>
-                    <GenresFilters onChange={(a) => console.log(a)} apiKey="c12acbfd62881f685724440e60707f6b" language="fr-FR"></GenresFilters>
-                </div>
-            );
-        }
-
+        
+        return (
+            <div>
+                <Header title="Bienvenue" subtitle="Recherche de séries"></Header>
+                <Sorting disabled={false} onChange={this.clickHandle} sorts={sorts}></Sorting>
+               {isLoaded ? renderContent : <p>Chargement...</p>}
+            </div>
+        );
     }
 }
 

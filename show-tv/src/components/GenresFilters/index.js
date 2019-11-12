@@ -39,15 +39,12 @@ export class GenresFilters extends React.Component {
     }
 
     _onFilterChange(id, type) {
-        var copyoflistGenre = [...this.state.listGenres];
-        
-        copyoflistGenre.map((item) => {
-            if (item.id === id) {
-                item.type = type;
-            }
-        });
+        var copyoflistGenre = this.state.listGenres.map((item) => ({...item, type: (item.id === id ? type : item.type)}));
+
         this.setState({
             listGenres: copyoflistGenre
+        }, () => {
+            this.props.onChange(this.state.listGenres.filter(item => item.type !== null));
         });
     }
 

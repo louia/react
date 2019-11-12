@@ -13,6 +13,7 @@ export class Sorting extends React.Component {
         if (sorts) {
             sorts.forEach(element => {
                 buttons.push(<SortButton
+                    key={element.id}
                     disabled={disabled}
                     selected={element.id}
                     className={"child-button"}

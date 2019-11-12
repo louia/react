@@ -6,15 +6,15 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
-    "@storybook/addon-docs": "^5.2.5",
-    "@storybook/addon-storyshots": "^5.2.5",
-    "@testing-library/react": "^9.2.0",
+    "@storybook/addon-docs": "^5.2.6",
+    "@storybook/addon-storyshots": "^5.2.6",
+    "@testing-library/react": "^9.3.2",
     "babel-plugin-macros": "^2.6.1",
     "bulma": "^0.8",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-scripts": "3.1.2",
-    "react-test-renderer": "^16.10.1",
+    "react-test-renderer": "^16.11.0",
     "require-context.macro": "^1.2.2"
   },
   "scripts": {
@@ -41,9 +41,9 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.2.5",
-    "@storybook/addon-links": "^5.2.5",
-    "@storybook/addons": "^5.2.5",
-    "@storybook/react": "^5.2.5"
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6"
   }
 }
