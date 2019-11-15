@@ -13,23 +13,28 @@ export class Explorer extends React.Component {
 
         this.state = {
             isLoaded: false,
+            listOfIdsFilterWith : "",
+            listOfIdsFilterWithout : "",
             error: null,
             listSeries: [],
             sorts : [
                 {
-                    id: "popularity",
-                    name: "popularité",
+                    id: "vote_average",
+                    name: "Vote",
                     order: "descending",
+                    active : "0"
                 },
                 {
-                    id: "name",
-                    name: "nom",
-                    order: "ascending",
+                    id: "first_air_date",
+                    name: "Date de mise en ligne",
+                    order: "descending",
+                    active : "0"
                 },
                 {
-                    id: "price",
-                    name: "prix",
-                    order: "ascending",
+                    id: "popularity",
+                    name: "Popularité",
+                    order: "descending",
+                    active : "0"
                 }
             ]
         };
@@ -37,15 +42,23 @@ export class Explorer extends React.Component {
 
     clickHandle(id, order) {
         var copyofSorts= [...this.state.sorts];
+      
         copyofSorts.map((item) => {
             if (item.id === id) {
                 if(order === 'descending') item.order = 'ascending';
                 else item.order='descending';
             }
-        });    
+        });  
+        var search=copyofSorts.find(element => element.id == id);
+
+
+        if(copyofSorts[0].order=="ascending") copyofSorts[0].id ="vote_average.desc"; else  copyofSorts[0].id ="vote_average.asc"
+        if(copyofSorts[1].order=="ascending") copyofSorts[1].id ="first_air_date.desc"; else  copyofSorts[1].id ="first_air_date.asc"
+        if(copyofSorts[2].order=="ascending") copyofSorts[2].id ="popularity.desc"; else  copyofSorts[2].id ="popularity.asc"
+
         this.setState({
             sorts: copyofSorts
-        });
+        },()=>this.refreshListSeries(this.state.listOfIdsFilterWith,this.state.listOfIdsFilterWithout,search));
     }
 
     _onFilterChange(filters){
@@ -59,12 +72,18 @@ export class Explorer extends React.Component {
         });
         listOfIdsFilterWithout = listOfIdsFilterWithout.map(item => item.id)
 
-        this.refreshListSeries(listOfIdsFilterWith,listOfIdsFilterWithout);
-        
+        this.setState({
+            listOfIdsFilterWith : listOfIdsFilterWith,
+            listOfIdsFilterWithout : listOfIdsFilterWithout
+        },()=>this.refreshListSeries(listOfIdsFilterWith,listOfIdsFilterWithout,this.state.sorts));
     }
 
-    refreshListSeries(w,wo){                
-        fetch('https://api.themoviedb.org/3/discover/tv?api_key=' + this.props.apiKey + '&language=' + this.props.language + '&with_genres='+w + '&without_genres='+wo)
+    refreshListSeries(w,wo,sort){       
+
+        console.log(sort.id);
+        
+        fetch('https://api.themoviedb.org/3/discover/tv?api_key=' + this.props.apiKey + '&language=' + this.props.language +
+        '&with_genres='+w + '&without_genres='+wo+'&sort_by='+sort.id)
         .then(response => {
             return response.json()
         })
@@ -73,7 +92,6 @@ export class Explorer extends React.Component {
                 listSeries: data.results,
                 isLoaded: true
             });     
-                      
         },
             (error) => {
                 this.setState({
@@ -94,7 +112,6 @@ export class Explorer extends React.Component {
                     listSeries: data.results,
                     isLoaded: true
                 });       
-                console.log(data.results);
             
             },
                 (error) => {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import 'bulma/css/bulma.css'
 import TVShow from '../TVShow/index';
 
-/** Une série */
+/** Une liste de séries */
 export class TVShowList extends React.Component {
 
     render() {
@@ -16,17 +16,16 @@ export class TVShowList extends React.Component {
                     return result
                     },[]
             )
-
         return (
-            <div>
+            <div className={"section"}>
             {
               splitEvery(listSeries, 3).map(usersChunk => (
                 <div className="columns">
                   { usersChunk.map( item => (
-                      <div className="column">
-                        <TVShow url_poster={item.poster_path} id={item.id}>{item.name}</TVShow>
+                      <div className="column" key={parseInt(item.id,10)}>
+                        <TVShow url_poster={item.poster_path} key={parseInt(item.id,10)} id={parseInt(item.id,10)}>{item.name}</TVShow>
                       </div>
-                    ))
+                  ))
                   }
                 </div>
               )
@@ -38,7 +37,7 @@ export class TVShowList extends React.Component {
 
 TVShowList.propTypes = {
     /** Liste de séries à afficher */
-    listSeries: PropTypes.object,
+    listSeries: PropTypes.array,
 };
 
 
